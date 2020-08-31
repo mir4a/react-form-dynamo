@@ -23,7 +23,26 @@
     "test": "react-scripts test"
   },
   "eslintConfig": {
-    "extends": "react-app"
+    "parser": "@typescript-eslint/parser",
+    "extends": [
+      "react-app",
+      "plugin:@typescript-eslint/recommended",
+      "prettier/@typescript-eslint",
+      "plugin:prettier/recommended"
+    ],
+    "parserOptions": {
+      "ecmaVersion": 2018,
+      "sourceType": "module"
+    },
+    "rules": {
+      "max-len": [
+        "error",{"code": 80}
+      ],
+      "quotes": [
+        "error",
+        "single"
+      ]
+    }
   },
   "browserslist": {
     "production": [
@@ -38,6 +57,7 @@
     ]
   },
   "devDependencies": {
+    "prettier": "^2.1.1",
     "standard-version": "^9.0.0"
   }
 }
