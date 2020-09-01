@@ -1,4 +1,4 @@
-import React, { useState, useCallback, ReactNode, useMemo } from 'react';
+import React, { useState, ReactNode, useMemo, useEffect } from 'react';
 import TabContent from './Tab';
 import classNames from 'classnames';
 import './Tabs.css';
@@ -24,7 +24,7 @@ export function TabButton(props: {
   });
   return (
     <button onClick={onClick} className={btnClassNames}>
-      isActive?: {JSON.stringify(isActive)},{name}
+      {name}
     </button>
   );
 }
@@ -32,6 +32,15 @@ export function TabButton(props: {
 export default function Tabs(props: Props) {
   const { tabs } = props;
   const [activeTab, setActiveTab] = useState<number | undefined>();
+
+  useEffect(() => {
+    for (let i = 0; i < tabs.length; i++) {
+      if (tabs[i].isActive) {
+        setActiveTab(i);
+        break;
+      }
+    }
+  }, []); // eslint-disable-line react-hooks/exhaustive-deps
 
   const [tabButtons, tabItems] = useMemo(() => {
     let tabButtons: any[] = [];
@@ -41,7 +50,9 @@ export default function Tabs(props: Props) {
         <TabButton
           key={`TabButton_${index}`}
           name={tab.name}
-          isActive={activeTab ? index === activeTab : tab.isActive}
+          isActive={
+            activeTab !== undefined ? index === activeTab : tab.isActive
+          }
           onClick={() => {
             setActiveTab(index);
           }}
@@ -58,18 +69,11 @@ export default function Tabs(props: Props) {
     return [tabButtons, tabItems];
   }, [tabs, activeTab]);
 
-  const handleTabChange = useCallback(
-    function changeTab(tabId: number): void {
-      setActiveTab(tabId);
-    },
-    [setActiveTab],
-  );
-
   return (
     <div className="Tabs">
       <div className="Tabs-navigation">{tabButtons}</div>
       <div className="Tabs-wrapper">
-        {activeTab ? tabItems![activeTab] : tabItems[0]}
+        {activeTab !== undefined && tabItems[activeTab]}
       </div>
     </div>
   );

@@ -1,3 +1,19 @@
 .Result-btn-wrapper {
   margin-bottom: 25px;
 }
+
+.Result-blank {
+  display: flex;
+  flex: 1;
+  justify-content: center;
+  align-items: center;
+  margin: -15px;
+  font-size: 20px;
+  font-weight: 700;
+  padding: 0 30px;
+}
+
+.Result-error {
+  background-color: var(--error-color);
+  color: white;
+}

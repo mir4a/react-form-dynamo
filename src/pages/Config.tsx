@@ -26,10 +26,9 @@ export default function ConfigPage() {
       result = parser(input!);
       appState!.updateConfig(result);
     } catch (parserError) {
-      console.log('config: ', parserError);
       appState!.toggleError(parserError.message);
     }
-  }, [input]);
+  }, [input, appState]);
 
   return (
     <>

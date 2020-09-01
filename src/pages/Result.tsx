@@ -1,11 +1,20 @@
-import React, { useContext, ReactElement, useMemo, useCallback } from 'react';
+import React, { useContext, ReactElement } from 'react';
 import Field from '../components/Fields';
 import { AppContext } from '../App';
 import Button from '../components/Button';
 import './Result.css';
+import { getErrorMessage } from '../helpers/error-messages';
 
 export default function ResultPage(): ReactElement | null {
   const appState = useContext(AppContext);
+
+  if (appState && appState.error) {
+    return (
+      <div className="Result-blank Result-error">
+        {getErrorMessage(appState.error)}
+      </div>
+    );
+  }
 
   if (appState && appState.config) {
     return (
@@ -33,5 +42,5 @@ export default function ResultPage(): ReactElement | null {
     );
   }
 
-  return null;
+  return <div className="Result-blank">Empty. Apply config first.</div>;
 }

@@ -3,6 +3,7 @@ import './App.css';
 import Tabs from './components/Tabs';
 import ConfigPage from './pages/Config';
 import ResultPage from './pages/Result';
+import ErrorMessage from './components/ErrorMessage';
 import { Form } from './helpers/parser';
 import { getErrorMessage } from './helpers/error-messages';
 
@@ -26,16 +27,20 @@ function App() {
   const toggleError = (err: any) => {
     setError(err);
   };
+
   return (
     <div className="App">
       <header className="App-header">
         <h1 className="App-title">React Form Dynamo</h1>
       </header>
       <AppContext.Provider value={{ config, error, updateConfig, toggleError }}>
-        {error && getErrorMessage(error!)}
+        <ErrorMessage
+          message={error ? getErrorMessage(error!) : ''}
+          show={!!error}
+        />
         <Tabs
           tabs={[
-            { isActive: true, name: 'Edit', content: <ConfigPage /> },
+            { isActive: true, name: 'Config', content: <ConfigPage /> },
             { name: 'Result', content: <ResultPage /> },
           ]}
         />

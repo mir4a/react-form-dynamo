@@ -3,6 +3,6 @@
   flex: 1;
   flex-direction: column;
   text-align: left;
-  border: 1px solid gray;
+  border: 2px solid var(--btn-primary);
   padding: 15px;
 }
