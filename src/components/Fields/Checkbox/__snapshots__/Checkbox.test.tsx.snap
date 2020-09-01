@@ -1,0 +1,19 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders correctly 1`] = `
+<label
+  className="Label"
+>
+  <input
+    checked={true}
+    className="Checkbox"
+    onChange={[Function]}
+    type="checkbox"
+  />
+  <span
+    className="Label-text"
+  >
+    Radio Buttons
+  </span>
+</label>
+`;

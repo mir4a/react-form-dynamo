@@ -1,0 +1,36 @@
+.Tabs {
+  display: flex;
+  flex-direction: column;
+  margin: 20px;
+  min-height: 300px;
+  width: 100%;
+  max-width: 900px;
+}
+
+@media (max-width: 1000px) {
+  .Tabs {
+    width: auto;
+    max-width: 100%;
+  }
+}
+
+.Tabs-wrapper {
+  display: flex;
+  flex: 1;
+  width: 100%;
+}
+
+.Tabs-navigation {
+  display: flex;
+  justify-content: flex-start;
+}
+
+.Tabs-button {
+  background-color: white;
+  border: 1px solid;
+  border-bottom-width: 0;
+}
+
+.Tabs-button__active {
+  background-color: salmon;
+}

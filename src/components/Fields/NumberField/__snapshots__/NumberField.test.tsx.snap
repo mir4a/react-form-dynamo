@@ -1,0 +1,21 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders correctly 1`] = `
+Array [
+  <label
+    className="Label Label__block"
+  >
+    <span
+      className="Label-text"
+    >
+      A
+    </span>
+  </label>,
+  <input
+    className="Input NumberField"
+    onChange={[Function]}
+    type="number"
+    value=""
+  />,
+]
+`;

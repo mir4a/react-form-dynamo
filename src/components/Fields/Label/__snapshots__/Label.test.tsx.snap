@@ -1,0 +1,13 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders correctly 1`] = `
+<label
+  className="Label"
+>
+  <span
+    className="Label-text"
+  >
+    Radio Buttons
+  </span>
+</label>
+`;

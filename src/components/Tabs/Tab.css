@@ -1,0 +1,8 @@
+.Tab {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  text-align: left;
+  border: 1px solid gray;
+  padding: 15px;
+}

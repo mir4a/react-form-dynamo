@@ -1,0 +1,12 @@
+.Config-button {
+  align-self: flex-end;
+}
+
+.Config-input {
+  min-height: 300px;
+  resize: none;
+}
+
+.Config-apply {
+  align-self: flex-end;
+}

@@ -1,0 +1,12 @@
+.Label {
+  margin-bottom: 10px;
+}
+
+.Label-text {
+  font-size: 14px;
+  font-weight: 700;
+}
+
+.Label__block {
+  display: block;
+}
