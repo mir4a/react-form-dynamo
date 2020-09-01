@@ -1,14 +1,17 @@
 import React, { useState, useCallback, useContext } from 'react';
-import { parser, Form, Errors } from '../helpers/parser';
+import { parser } from '../helpers/parser';
 import { AppContext } from '../App';
+import { Textarea } from '../components/Fields';
+import Button from '../components/Button';
+import './Config.css';
 
 export default function ConfigPage() {
   const { config, updateConfig, toggleError } = useContext(AppContext);
   const [input, setInput] = useState();
 
   const handleChange = useCallback(
-    (event) => {
-      setInput(event.target.value);
+    (value) => {
+      setInput(value);
     },
     [setInput],
   );
@@ -27,13 +30,19 @@ export default function ConfigPage() {
 
   return (
     <>
-      <hr />
-      JSON: {JSON.stringify(config)}
-      <br />
-      <textarea onChange={handleChange}>{input}</textarea>
-      <br />
-      <button onClick={handleApply}>Apply</button>
-      <hr />
+      <Textarea
+        label="Type a config in JSON format"
+        onChange={handleChange}
+        name="config"
+        intitialValue={JSON.stringify(config)}
+        className="Config-input"
+      />
+      <Button
+        onClick={handleApply}
+        disabled={false}
+        label="Apply"
+        className="Config-apply"
+      />
     </>
   );
 }

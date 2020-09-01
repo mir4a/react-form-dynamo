@@ -1,5 +1,7 @@
 import React, { useState, useCallback, ReactNode, useMemo } from 'react';
 import TabContent from './Tab';
+import classNames from 'classnames';
+import './Tabs.css';
 
 type Tab = {
   isActive?: boolean;
@@ -17,12 +19,13 @@ export function TabButton(props: {
   onClick: (e: React.MouseEvent) => void;
 }) {
   const { name, isActive, onClick } = props;
+  const btnClassNames = classNames('Tabs-button', {
+    'Tabs-button__active': isActive,
+  });
   return (
-    <>
-      <button onClick={onClick}>
-        isActive?: {JSON.stringify(isActive)},{name}
-      </button>
-    </>
+    <button onClick={onClick} className={btnClassNames}>
+      isActive?: {JSON.stringify(isActive)},{name}
+    </button>
   );
 }
 
@@ -63,11 +66,11 @@ export default function Tabs(props: Props) {
   );
 
   return (
-    <>
-      <h1>This is tabs:</h1>
-      <div>{tabButtons}</div>
-      <hr />
-      <div>{activeTab ? tabItems![activeTab] : tabItems[0]}</div>
-    </>
+    <div className="Tabs">
+      <div className="Tabs-navigation">{tabButtons}</div>
+      <div className="Tabs-wrapper">
+        {activeTab ? tabItems![activeTab] : tabItems[0]}
+      </div>
+    </div>
   );
 }

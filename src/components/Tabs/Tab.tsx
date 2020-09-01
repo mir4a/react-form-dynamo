@@ -1,4 +1,5 @@
 import React, { ReactNode } from 'react';
+import './Tab.css';
 
 interface Props {
   isActive?: boolean;
@@ -6,10 +7,5 @@ interface Props {
 }
 
 export default function Tab(props: Props) {
-  return (
-    <>
-      is Active?: {JSON.stringify(props.isActive)}
-      <>{props.children}</>
-    </>
-  );
+  return <div className="Tab">{props.children}</div>;
 }

@@ -1,8 +1,3 @@
-/**
- * 1. Parse and validate JSON
- * 2. Generate fields
- *  */
-
 export const FIELD_TYPES = [
   'checkbox',
   'date',
@@ -15,7 +10,7 @@ export const FIELD_TYPES = [
 export type Field = {
   label: string;
   type: typeof FIELD_TYPES[number];
-  value?: string;
+  initialValue?: string;
   placeholder?: string;
   name?: string;
 };
@@ -91,7 +86,6 @@ export function parser(json: string): Form {
   try {
     result = JSON.parse(json, inputReviver);
   } catch (error) {
-    console.log(error.name, error.message);
     if (error.name === 'SyntaxError') {
       throw new Error(Errors.corrupt);
     }

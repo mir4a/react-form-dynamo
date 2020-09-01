@@ -1,11 +1,9 @@
-import React, { useState, useCallback } from 'react';
-import logo from './logo.svg';
+import React, { useState } from 'react';
 import './App.css';
-import './helpers/parser';
 import Tabs from './components/Tabs';
 import ConfigPage from './pages/Config';
 import ResultPage from './pages/Result';
-// import type { Form } from './helpers/parser';
+import { getErrorMessage } from './helpers/error-messages';
 
 export const AppContext = React.createContext({
   config: { items: [] },
@@ -25,15 +23,11 @@ function App() {
   };
   return (
     <div className="App">
+      <header className="App-header">
+        <h1 className="App-title">React Form Dynamo</h1>
+      </header>
       <AppContext.Provider value={{ config, error, updateConfig, toggleError }}>
-        <pre>
-          //Config
-          {JSON.stringify(config)}
-        </pre>
-        <pre>
-          // Error
-          {JSON.stringify(error)}
-        </pre>
+        {error && getErrorMessage(error!)}
         <Tabs
           tabs={[
             { isActive: true, name: 'Edit', content: <ConfigPage /> },

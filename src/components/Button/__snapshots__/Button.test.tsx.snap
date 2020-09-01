@@ -1,0 +1,39 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders button with additional class names 1`] = `
+<button
+  className="Button some-css-class"
+  onClick={[Function]}
+>
+  A
+</button>
+`;
+
+exports[`renders button with disabled=false 1`] = `
+<button
+  className="Button"
+  disabled={false}
+  onClick={[Function]}
+>
+  A
+</button>
+`;
+
+exports[`renders correctly 1`] = `
+<button
+  className="Button"
+  onClick={[Function]}
+>
+  A
+</button>
+`;
+
+exports[`renders disabled button 1`] = `
+<button
+  className="Button"
+  disabled={true}
+  onClick={[Function]}
+>
+  A
+</button>
+`;
