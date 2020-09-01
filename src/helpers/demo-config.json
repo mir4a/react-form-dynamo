@@ -1,5 +1,19 @@
 {
-  "title": "Demo config with covering (almost) all cases",
+  "title": "Demo config which covers (almost) all cases",
+  "buttons": [
+    {
+      "label": "OK",
+      "action": "okAction"
+    },
+    {
+      "label": "Cancel",
+      "action": "cancelAction"
+    },
+    {
+      "label": "Save",
+      "action": "saveAction"
+    }
+  ],
   "items": [
     {
       "type": "text",

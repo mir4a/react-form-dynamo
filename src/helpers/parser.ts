@@ -17,7 +17,7 @@ export type Field = {
 
 export type ActionButton = {
   label: string;
-  action: string;
+  action?: string;
 };
 
 export type Form = {
