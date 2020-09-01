@@ -1,0 +1,57 @@
+{
+  "title": "Demo config with covering (almost) all cases",
+  "items": [
+    {
+      "type": "text",
+      "label": "Text input"
+    },
+    {
+      "type": "number",
+      "label": "Number input"
+    },
+    {
+      "type": "date",
+      "label": "Date input"
+    },
+    {
+      "type": "textarea",
+      "label": "Textarea"
+    },
+    {
+      "type": "checkbox",
+      "label": "Checkbox"
+    },
+    {
+      "type": "checkbox",
+      "label": "Some consent. Notice! Name prop in item is not mandatory. If you won't provide it it will be generated"
+    },
+    {
+      "type": "radio",
+      "label": "Radio buttons",
+      "name": "radio-buttons",
+      "items": [
+        {
+          "label": "First with the value 1",
+          "value": 1
+        },
+        {
+          "label": "Second with the value 2",
+          "value": 2
+        },
+        {
+          "label": "Third...",
+          "value": 3
+        },
+        {
+          "label": "And so on...",
+          "value": 4
+        }
+      ]
+    },
+    {
+      "type": "text",
+      "label": "Text input with initial value",
+      "initialValue": "this is already filled in"
+    }
+  ]
+}

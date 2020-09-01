@@ -3,19 +3,24 @@ import './App.css';
 import Tabs from './components/Tabs';
 import ConfigPage from './pages/Config';
 import ResultPage from './pages/Result';
+import { Form } from './helpers/parser';
 import { getErrorMessage } from './helpers/error-messages';
 
-export const AppContext = React.createContext({
-  config: { items: [] },
-  error: undefined,
-  updateConfig: (newConfig: any) => {},
-  toggleError: (err: any) => {},
-});
+export type AppContextType = {
+  config?: Form;
+  error?: string;
+  updateConfig: (newConfig: Form) => void;
+  toggleError: (error: string | undefined) => void;
+};
+
+export const AppContext = React.createContext<AppContextType | undefined>(
+  undefined,
+);
 
 function App() {
-  const [config, setConfig] = useState({ items: [] });
+  const [config, setConfig] = useState();
   const [error, setError] = useState();
-  const updateConfig = (newConfig: { items: [] }): void => {
+  const updateConfig = (newConfig: any): void => {
     setConfig(newConfig);
   };
   const toggleError = (err: any) => {

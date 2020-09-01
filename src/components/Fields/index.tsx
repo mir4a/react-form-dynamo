@@ -7,6 +7,7 @@ import TextField from './TextField';
 import Textarea from './Textarea';
 import NumberField from './NumberField';
 import { RadioButtonType } from './RadioButton/RadioButton';
+import { FIELD_TYPES } from '../../helpers/parser';
 
 export {
   Checkbox,
@@ -19,16 +20,16 @@ export {
 };
 
 interface FieldProps {
-  type: string;
+  type: typeof FIELD_TYPES[number];
   label: string;
-  values?: RadioButtonType[];
+  items?: RadioButtonType[];
 }
 
 export default function Field(props: FieldProps): ReactElement | null {
   let radioList: RadioButtonType[] = [];
 
-  if (props.type === 'radio' && props.values) {
-    radioList = props.values;
+  if (props.type === 'radio' && props.items) {
+    radioList = props.items;
   }
 
   switch (props.type) {
@@ -39,7 +40,7 @@ export default function Field(props: FieldProps): ReactElement | null {
     case 'number':
       return <NumberField {...props} />;
     case 'radio':
-      return <RadioButton {...props} values={radioList} />;
+      return <RadioButton {...props} items={radioList} />;
     case 'text':
       return <TextField {...props} />;
     case 'textarea':

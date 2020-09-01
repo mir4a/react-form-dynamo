@@ -11,9 +11,11 @@ Array [
       A
     </span>
   </label>,
-  <textarea
-    className="Textarea"
+  <input
+    className="Input DateField"
     onChange={[Function]}
+    type="date"
+    value=""
   />,
 ]
 `;

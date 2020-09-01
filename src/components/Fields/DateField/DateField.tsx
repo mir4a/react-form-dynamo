@@ -1,17 +1,15 @@
 import React, { memo } from 'react';
-import Label from '../Label';
+import BaseField from '../BaseField';
+import './DateField.css';
 
 interface Props {
-  intitialValue?: string;
+  initialValue?: string;
   label: string;
+  name?: string;
+  onChange?: Function;
+  className?: string;
 }
-export default memo(function DateField(props: Props) {
-  const { intitialValue, label } = props;
 
-  return (
-    <>
-      <Label label={label} />
-      <input type="date" />
-    </>
-  );
+export default memo(function DateField(props: Props) {
+  return <BaseField {...props} type="date" />;
 });

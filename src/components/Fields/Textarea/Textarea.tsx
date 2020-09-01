@@ -1,32 +1,31 @@
-import React, { memo, useState, useCallback, ChangeEvent } from 'react';
+import React, { useState, useCallback, ChangeEvent } from 'react';
 import Label from '../Label';
 import classNames from 'classnames';
 import './Textarea.css';
 
 interface Props {
-  intitialValue?: string;
+  initialValue?: string;
   label: string;
   name?: string;
   onChange?: Function;
   className?: string;
 }
 
-export default memo(function TextareaField(props: Props) {
-  const { intitialValue, label, name, onChange, className } = props;
-  const [value, setValue] = useState(intitialValue);
+export default React.memo(function TextareaField(props: Props) {
+  const { initialValue, label, name, onChange, className } = props;
+  const [value, setValue] = useState(initialValue);
   const textareaClassNames = classNames('Textarea', className);
   const handleOnChange = useCallback(
     (event: ChangeEvent<HTMLTextAreaElement>) => {
-      const value = event.target.value;
-      setValue(value);
-      onChange && onChange(value);
+      setValue(event.target.value);
+      onChange && onChange(event.target.value);
     },
     [setValue, onChange],
   );
 
   return (
     <>
-      <Label label={label} forId={name} />
+      <Label label={label} forId={name} className="Label__block" />
       <textarea
         className={textareaClassNames}
         id={name}

@@ -1,31 +1,34 @@
-import React, { useState, useCallback, useContext } from 'react';
+import React, { useState, useCallback, useContext, useMemo } from 'react';
 import { parser } from '../helpers/parser';
 import { AppContext } from '../App';
 import { Textarea } from '../components/Fields';
 import Button from '../components/Button';
 import './Config.css';
 
-export default function ConfigPage() {
-  const { config, updateConfig, toggleError } = useContext(AppContext);
-  const [input, setInput] = useState();
+import demoConfig from '../helpers/demo-config.json';
 
-  const handleChange = useCallback(
-    (value) => {
-      setInput(value);
-    },
-    [setInput],
-  );
+export default function ConfigPage() {
+  const appState = useContext(AppContext);
+  const initialValue = appState!.config ? appState!.config : demoConfig;
+  const initialValueJSON = useMemo(() => {
+    return JSON.stringify(initialValue, null, 2);
+  }, [initialValue]);
+  const [input, setInput] = useState(initialValueJSON);
+
+  const handleChange = useCallback((value) => {
+    setInput(value);
+  }, []);
 
   const handleApply = useCallback(() => {
     let result;
     try {
-      toggleError(undefined);
+      appState!.toggleError(undefined);
       result = parser(input!);
+      appState!.updateConfig(result);
     } catch (parserError) {
       console.log('config: ', parserError);
-      toggleError(parserError.message);
+      appState!.toggleError(parserError.message);
     }
-    updateConfig(result);
   }, [input]);
 
   return (
@@ -34,7 +37,7 @@ export default function ConfigPage() {
         label="Type a config in JSON format"
         onChange={handleChange}
         name="config"
-        intitialValue={JSON.stringify(config)}
+        initialValue={initialValueJSON}
         className="Config-input"
       />
       <Button

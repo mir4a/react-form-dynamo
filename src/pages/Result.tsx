@@ -1,20 +1,24 @@
-import React, { useContext, ReactElement } from 'react';
+import React, { useContext, ReactElement, useMemo, useCallback } from 'react';
 import Field from '../components/Fields';
 import { AppContext } from '../App';
 
 export default function ResultPage(): ReactElement | null {
-  const { config } = useContext(AppContext);
+  const appState = useContext(AppContext);
 
-  if (!config) {
+  if (appState && !appState.config) {
     return null;
   }
 
   return (
     <>
       <form>
-        {config.items.map((field: any) => (
-          <Field {...field} />
-        ))}
+        {appState &&
+          appState.config &&
+          appState.config.items.map((field: any) => (
+            <div>
+              <Field {...field} />
+            </div>
+          ))}
       </form>
     </>
   );
