@@ -1,0 +1,65 @@
+.ErrorMessage {
+  position: absolute;
+  z-index: 1;
+  left: 0;
+  right: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 10px 20px;
+  color: white;
+  background-color: var(--error-color);
+}
+
+.ErrorMessage-close {
+  --btn-size: 20px;
+  font-size: 20px;
+  font-weight: 700;
+  border: none;
+  padding: 0;
+  line-height: var(--btn-size);
+  width: var(--btn-size);
+  height: var(--btn-size);
+  display: flex;
+  align-items: center;
+  justify-items: center;
+  border-radius: 50%;
+  background-color: white;
+  color: var(--error-color);
+  margin-left: 25px;
+}
+
+.ErrorMessage-close:hover {
+  cursor: pointer;
+  background-color: rgba(255,255,255,0.75);
+}
+
+.ErrorMessage-close:focus {
+  outline: none;
+}
+
+.ErrorMessage-close--text {
+  align-self: center;
+  flex-grow: 1;
+}
+
+.ErrorMessage-animation-enter {
+  opacity: 0;
+  transform: translateY(-80px);
+}
+
+.ErrorMessage-animation-enter-active {
+  opacity: 1;
+  transform: translateY(0);
+  transition: opacity 300ms, transform 300ms;
+}
+
+.ErrorMessage-animation-exit {
+  opacity: 1;
+}
+
+.ErrorMessage-animation-exit-active {
+  opacity: 0;
+  transform: translateY(-100px);
+  transition: opacity 300ms, transform 300ms;
+}

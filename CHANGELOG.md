@@ -9,7 +9,7 @@ All notable changes to this project will be documented in this file. See [standa
 
 ### ⚠ BREAKING CHANGES
 
-* 🧨 y
+* 🧨 First implementation is always _breaking_ 😅
 
 ### Features
 

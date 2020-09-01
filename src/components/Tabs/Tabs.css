@@ -23,14 +23,38 @@
 .Tabs-navigation {
   display: flex;
   justify-content: flex-start;
+  flex-wrap: wrap-reverse;
+  position: relative;
+  bottom: -3px;
 }
 
 .Tabs-button {
-  background-color: white;
-  border: 1px solid;
+  font-size: 16px;
+  font-weight: 700;
+  color: white;
+  background-color: var(--btn-primary);
+  border: 2px solid var(--btn-primary);
   border-bottom-width: 0;
+  padding: 10px 20px
+}
+
+.Tabs-button:active,
+.Tabs-button:focus {
+  outline: none;
+}
+
+.Tabs-button:hover {
+  cursor: pointer;
+  border-color: var(--btn-hover);
+  background-color: var(--btn-hover);
 }
 
 .Tabs-button__active {
-  background-color: salmon;
+  color: var(--text-color);
+  background-color: white;
+}
+
+.Tabs-button__active {
+  cursor: default;
+  pointer-events: none;
 }
