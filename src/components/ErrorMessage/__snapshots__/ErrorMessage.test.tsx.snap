@@ -1,0 +1,41 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`does not render with show=false 1`] = `null`;
+
+exports[`renders correctly 1`] = `
+<div
+  className="ErrorMessage"
+>
+  <span>
+    error
+  </span>
+  <button
+    className="ErrorMessage-close"
+    onClick={[Function]}
+  >
+    <span
+      className="ErrorMessage-close--text"
+    >
+      ×
+    </span>
+  </button>
+</div>
+`;
+
+exports[`renders without message 1`] = `
+<div
+  className="ErrorMessage"
+>
+  <span />
+  <button
+    className="ErrorMessage-close"
+    onClick={[Function]}
+  >
+    <span
+      className="ErrorMessage-close--text"
+    >
+      ×
+    </span>
+  </button>
+</div>
+`;

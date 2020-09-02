@@ -60,9 +60,7 @@ export default function Tabs(props: Props) {
       );
 
       tabItems.push(
-        <TabContent key={`TabContent_${index}`} isActive={tab.isActive}>
-          {tab.content}
-        </TabContent>,
+        <TabContent key={`TabContent_${index}`}>{tab.content}</TabContent>,
       );
     });
 

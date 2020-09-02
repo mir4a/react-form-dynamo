@@ -2,7 +2,6 @@ import React, { ReactNode } from 'react';
 import './Tab.css';
 
 interface Props {
-  isActive?: boolean;
   children: ReactNode;
 }
 
