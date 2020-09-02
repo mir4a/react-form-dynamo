@@ -1,0 +1,40 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders correctly 1`] = `
+<div
+  className="Tabs"
+>
+  <div
+    className="Tabs-navigation"
+  >
+    <button
+      className="Tabs-button Tabs-button__active"
+      onClick={[Function]}
+    >
+      Tab 1
+    </button>
+    <button
+      className="Tabs-button"
+      onClick={[Function]}
+    >
+      Tab 2
+    </button>
+  </div>
+  <div
+    className="Tabs-wrapper"
+  />
+</div>
+`;
+
+exports[`renders correctly with empty tabs 1`] = `
+<div
+  className="Tabs"
+>
+  <div
+    className="Tabs-navigation"
+  />
+  <div
+    className="Tabs-wrapper"
+  />
+</div>
+`;

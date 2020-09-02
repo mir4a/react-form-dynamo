@@ -17,3 +17,12 @@
   background-color: var(--error-color);
   color: white;
 }
+
+.Result-source-btn {
+  align-self: flex-end;
+}
+
+.Result-source-textarea {
+  flex-grow: 1;
+  margin-bottom: 0;
+}
