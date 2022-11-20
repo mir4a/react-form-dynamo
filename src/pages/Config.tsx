@@ -26,7 +26,7 @@ export default function ConfigPage() {
       result = parser(input!);
       appState!.updateConfig(result);
     } catch (parserError) {
-      appState!.toggleError(parserError.message);
+      appState!.toggleError((parserError as any).message);
     }
   }, [input, appState]);
 

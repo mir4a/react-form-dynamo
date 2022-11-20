@@ -86,7 +86,7 @@ export function parser(json: string): Form {
   try {
     result = JSON.parse(json, inputReviver);
   } catch (error) {
-    if (error.name === 'SyntaxError') {
+    if ((error as any).name === 'SyntaxError') {
       throw new Error(Errors.corrupt);
     }
 
